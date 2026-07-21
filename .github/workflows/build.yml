@@ -82,7 +82,7 @@ jobs:
 
       - name: Get calibre binaries cache
         id: cache-bin
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         timeout-minutes: 1
         with:
           path: cache/calibre
@@ -123,16 +123,16 @@ jobs:
 
       # Ref: https://github.com/actions/starter-workflows/blob/main/pages/static.yml
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
         timeout-minutes: 2
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         timeout-minutes: 1
         with:
           name: meta-artifacts
